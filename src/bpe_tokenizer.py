@@ -32,8 +32,8 @@ class BPETokenizer():
         text_bytes = text.encode("utf-8")
         ids = list(text_bytes)
 
-        merges = {} # (int, int) -> int
-        vocab = {idx: bytes([idx]) for idx in range(256)} # int -> bytes
+        merges = {}
+        vocab = {idx: bytes([idx]) for idx in range(256)}
         for i in range(num_merges):
             stats = self.get_stats(ids)
             pair = max(stats, key=stats.get)
